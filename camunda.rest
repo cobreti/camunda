@@ -1,0 +1,17 @@
+POST http://192.168.1.225/engine-rest/process-definition/Process_16n18ma:11:2a4d45d4-e6f3-11ea-bb89-0242ac130002/start HTTP/1.1
+content-type: application/json
+Accept: application/json
+
+{
+
+}
+
+###
+
+POST http://192.168.1.225/engine-rest/message HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+
+{
+  "messageName" : "startMsg"
+}
