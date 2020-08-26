@@ -3,3 +3,4 @@ services/TestClient/TestClient/bin/Debug/netcoreapp3.1/appsettings.Development.j
 services/TestClient/TestClient/bin/
 services/TestClient/TestClient/obj/project.assets.json
 services/TestClient/TestClient/obj/
+.vscode/
