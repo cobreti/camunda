@@ -10,7 +10,7 @@ namespace TestClient
         public CamundaClient()
         {
             camunda = new CamundaEngineClient(
-                new Uri("http://192.168.1.225/engine-rest/engine/default/"), null, null);
+                new Uri("http://camunda.danny-thibaudeau.ca/engine-rest/engine/default/"), null, null);
         }
 
         public void Run()
