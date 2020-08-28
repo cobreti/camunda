@@ -14,7 +14,7 @@ namespace TestClient
         
         public void Execute(ExternalTask externalTask, ref Dictionary<string, object> resultVariables)
         {
-            int status = 1;
+            int status = 0;
             resultVariables.Add("newValue", "result value");
             resultVariables.Add("otherValue", "second check");
             resultVariables.Add("teststatus", status);
