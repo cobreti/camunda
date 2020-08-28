@@ -1,8 +1,10 @@
 version: "3"
 services:
-  zookeeper:
+  camunda:
     image: 'camunda/camunda-bpm-platform:latest'
     ports:
       - '8080:8080'
     environment:
       - ALLOW_ANONYMOUS_LOGIN=yes
+    volumes:
+      - /root/data/camunda/forms:/camunda/webapps/camunda/app/tasklist/forms
