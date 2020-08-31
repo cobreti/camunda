@@ -24,6 +24,11 @@ Accept: application/json
 
 ###
 
-GET {{{{camundaRestEngine}}/task?candidateGroup=testGroup HTTP/1.1
+GET {{camundaRestEngine}}/task?candidateGroup=testGroup HTTP/1.1
 Content-Type:  application/json
 Accept: application/json
+
+###
+
+GET {{camundaRestEngine}}/task/7bc78fec-e882-11ea-932a-0242ac120002/form-variables HTTP/1.1
+Content-Type:  application/json

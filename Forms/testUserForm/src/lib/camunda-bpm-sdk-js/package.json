@@ -1,0 +1,96 @@
+{
+  "_from": "camunda-bpm-sdk-js",
+  "_id": "camunda-bpm-sdk-js@7.7.4-SNAPSHOT",
+  "_inBundle": false,
+  "_integrity": "sha512-qpHW2Lfc4IaCOCOhb07jn1D5AFk6el8Jia3PRcv0oUeu5cdwxwCCExGanWz5WCssOCqpT9Mg3unQ94uE8SdVsw==",
+  "_location": "/camunda-bpm-sdk-js",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "camunda-bpm-sdk-js",
+    "name": "camunda-bpm-sdk-js",
+    "escapedName": "camunda-bpm-sdk-js",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/camunda-bpm-sdk-js/-/camunda-bpm-sdk-js-7.7.4-SNAPSHOT.tgz",
+  "_shasum": "0dfeab7706726d9b10a60171365f0b3edf3c0462",
+  "_spec": "camunda-bpm-sdk-js",
+  "_where": "D:\\dev\\camunda\\Forms\\testUserForm",
+  "author": {
+    "name": "Valentin Vago",
+    "email": "valentin.vago@camunda.com"
+  },
+  "bugs": {
+    "url": "https://app.camunda.com/jira/browse/CAM/component/12351"
+  },
+  "bundleDependencies": false,
+  "contributors": [
+    {
+      "name": "Daniel Meyer",
+      "email": "daniel.meyer@camunda.com"
+    }
+  ],
+  "dependencies": {
+    "exposify": "https://github.com/camunda-third-party/exposify/archive/v0.2.0-transform-arguments-0.tar.gz",
+    "grunt": "0.4.5",
+    "grunt-browserify": "2.1.0",
+    "load-grunt-tasks": "0.5.0",
+    "q": "^1.4.1",
+    "superagent": "1.4.0",
+    "time-grunt": "0.3.2"
+  },
+  "deprecated": false,
+  "description": "Javascript client library for camunda BPM",
+  "devDependencies": {
+    "browserify": "4.1.10",
+    "chai": "2.3.0",
+    "fixturer": "git://github.com/camunda-third-party/fixturer.git",
+    "grunt-bower-release": "git://github.com/camunda-third-party/grunt-bower-release.git#0.0.7",
+    "grunt-bump": "git://github.com/camunda-third-party/grunt-bump.git",
+    "grunt-contrib-clean": "0.5.0",
+    "grunt-contrib-copy": "0.5.0",
+    "grunt-contrib-jshint": "0.10.0",
+    "grunt-contrib-uglify": "0.5.0",
+    "grunt-contrib-watch": "0.6.1",
+    "grunt-eslint": "18.1.0",
+    "grunt-karma": "0.8.3",
+    "grunt-mocha-cli": "1.13.0",
+    "grunt-newer": "1.2.0",
+    "grunt-release": "0.7.0",
+    "karma": "0.12.16",
+    "karma-browserify": "4.0.0",
+    "karma-chai": "0.1.0",
+    "karma-chrome-launcher": "0.1.4",
+    "karma-firefox-launcher": "0.1.3",
+    "karma-mocha": "0.1.10",
+    "karma-phantomjs-launcher": "0.1.4",
+    "mocha": "2.2.4",
+    "sinon": "^1.17.6",
+    "superagent-mock": "1.9.0",
+    "underscore": "1.6.0",
+    "underscore.string": "2.3.3",
+    "uuid": "1.4.1"
+  },
+  "homepage": "https://github.com/camunda/camunda-bpm-sdk-js",
+  "keywords": [
+    "camunda-bpm",
+    "sdk"
+  ],
+  "license": "Apache-2.0",
+  "name": "camunda-bpm-sdk-js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/camunda/camunda-bpm-sdk-js.git"
+  },
+  "scripts": {
+    "test": "jasmine_node"
+  },
+  "version": "7.7.4-SNAPSHOT"
+}
