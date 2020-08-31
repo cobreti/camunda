@@ -48,7 +48,7 @@
       <bpmn:messageEventDefinition id="MessageEventDefinition_136xxeu" messageRef="Message_0ihbh99" />
     </bpmn:startEvent>
     <bpmn:sequenceFlow id="Flow_0q4jbib" sourceRef="Event_1av7n91" targetRef="Activity_1lsus1z" />
-    <bpmn:userTask id="Activity_1lsus1z" camunda:formKey="forms/testUserForm/index.html" camunda:candidateGroups="testGroup">
+    <bpmn:userTask id="Activity_1lsus1z" camunda:formKey="forms/testUserForm/index.html" camunda:candidateGroups="sales">
       <bpmn:extensionElements>
         <camunda:formData>
           <camunda:formField id="username" label="username" type="string" />
