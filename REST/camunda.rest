@@ -1,4 +1,4 @@
-@server = http://localhost:8080
+@server = http://camunda.minikube.local
 @camundaRestEngine = {{server}}/engine-rest
 
 ###

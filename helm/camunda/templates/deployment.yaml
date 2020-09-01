@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: camunda
+  namespace: {{ .Values.namespace }}
+spec:
+  selector:
+    matchLabels:
+      app: camunda
+      service: camunda
+  template:
+    metadata:
+      labels:
+        app: camunda
+        service: camunda
+    spec:
+      containers:
+        - name: camunda
+          image: camunda/camunda-bpm-platform:latest
+          ports:
+            - containerPort: 8080
+          env:
+            - name: ALLOW_ANONYMOUS_LOGIN
+              value: "yes"
+      restartPolicy: Always
