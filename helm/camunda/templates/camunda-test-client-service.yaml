@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: camundatestclientservice
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: camunda
+    service: camundatestclientservice
+spec:
+  ports:
+    - port: 80
+      targetPort: 80
+  selector:
+    app: camunda
+    service: camundatestclient

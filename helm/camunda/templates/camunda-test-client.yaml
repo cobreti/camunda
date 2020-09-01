@@ -1,0 +1,30 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: camundatestclient
+  namespace: {{ .Values.namespace }}
+spec:
+  selector:
+    matchLabels:
+      app: camunda
+      service: camundatestclient
+  template:
+    metadata:
+      labels:
+        app: camunda
+        service: camundatestclient
+    spec:
+      containers:
+        - name: camundatestclient
+          image: cobreti/camunda-test-client
+          workingDir: /TestClient
+          command: ["dotnet", "TestClient.dll"]
+          ports:
+            - containerPort: 80
+          env:
+            - name: ASPNETCORE_Kestrel__Certificates__Default__Password
+              value: TestClient
+            - name: ASPNETCORE_Kestrel__Certificates__Default__Path
+              value: localhost.pfx
+      restartPolicy: Always

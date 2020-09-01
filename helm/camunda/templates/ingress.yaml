@@ -20,6 +20,14 @@ spec:
     - host: camunda.minikube.local
       http:
         paths:
+          - path: /testclient/(.*)
+            backend:
+              serviceName: camundatestclientservice
+              servicePort: 80
+          - path: /testclient/
+            backend:
+              serviceName: camundatestclientservice
+              servicePort: 80
           - path: /(.*)
             backend:
               serviceName: camundaservice
