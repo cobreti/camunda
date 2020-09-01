@@ -38,10 +38,10 @@ namespace TestClient
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
+            // app.UseHttpsRedirection();
 
             var fileProvider = new PhysicalFileProvider(
-                    Path.Combine(env.ContentRootPath, "UI"));
+                    Path.Combine(env.ContentRootPath, "UI/testUserForm"));
 
             var defaultFileOptions = new DefaultFilesOptions();
             defaultFileOptions.DefaultFileNames.Clear();
@@ -54,6 +54,7 @@ namespace TestClient
                 FileProvider = fileProvider
             });
 
+            app.UseHsts();
             app.UseRouting();
 
             app.UseAuthorization();

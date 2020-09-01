@@ -1,0 +1,12 @@
+version: "3"
+services:
+  camunda:
+    image: 'camunda-test-client'
+    working_dir: /TestClient
+    command: ["dotnet", "TestClient.dll"]
+    ports:
+      - '8000:80'
+    environment:
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=authservice
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=localhost.pfx
+

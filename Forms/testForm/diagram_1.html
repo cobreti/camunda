@@ -1,15 +1,32 @@
-<form role="form" name="testForm">
-  <div class="form-group">
-    <label for="customerId-field">Customer ID Value</label>
-    <input required
-           cam-variable-name="customerId"
-           cam-variable-type="String"
-           class="form-control" />
-  </div>
-  <div class="form-group">
-    <label for="amount-field">Amount Value</label>
-    <input cam-variable-name="amount"
-           cam-variable-type="Double"
-           class="form-control" />
-  </div>
-</form>
+<html>
+  <head></head>
+  <body>
+    <h1>form header</h1>
+    <button onclick="externalBtnClick()">
+      testBtn
+    </button>
+    <form role="form" name="testForm">
+      <div class="form-group">
+        <label for="customerId-field">Customer ID Value</label>
+        <input required
+              cam-variable-name="customerId"
+              cam-variable-type="String"
+              class="form-control" />
+      </div>
+      <div class="form-group">
+        <label for="amount-field">Amount Value</label>
+        <input cam-variable-name="amount"
+              cam-variable-type="Double"
+              class="form-control" />
+      </div>
+    </form>
+    <script src="embedded:deployment:diagram_1.js"></script>
+    <script>
+      (function() {
+        window.btnClick = function() {
+          window.alert("button clicked");
+        }
+      }());
+    </script>
+  </body>
+</html>
