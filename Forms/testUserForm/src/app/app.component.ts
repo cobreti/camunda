@@ -1,8 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { Router, ActivatedRoute, Params } from '@angular/router';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-import * as CamSDK from 'camunda-bpm-sdk-js/lib';
+import { ActivatedRoute } from '@angular/router';
 
 // declare var CamSDK: any;
 
@@ -25,7 +22,8 @@ export class AppComponent implements OnInit {
     this.activatedRoute.queryParams.subscribe(params => {
       var taskId = params['taskId'];
       if (taskId) {
-        this.setupCamundaForm(taskId);
+        console.log(`Task Id ==> ${taskId}`);
+        // this.setupCamundaForm(taskId);
       }
     });
 
@@ -34,25 +32,25 @@ export class AppComponent implements OnInit {
     // console.log(`url : ${this.activatedRoute.url}`);
   }
 
-  setupCamundaForm(taskId: string) {
-    var camClient = new CamSDK.Client({
-      mock: false,
-      apiUri: 'http://camunda.danny-thibaudeau.ca/engine-rest'
-    });
+  setupCamundaForm() {
+    // var camClient = new CamSDK.Client({
+    //   mock: false,
+    //   apiUri: 'http://camunda.danny-thibaudeau.ca/engine-rest'
+    // });
 
-    var taskService = new camClient.resource('task');
+    // var taskService = new camClient.resource('task');
 
-    taskService.form(taskId, function(err, taskFormInfo) {
-      var url = taskFormInfo.key.replace('embedded:app:', taskFormInfo.contextPath + '/');
-      var form = new CamSDK.Form(
-        {
-          client: camClient,
-          taskId,
-          formElement: this.myForm.nativeElement,
-          done: function(error, camFormInstance) {
-            console.log('done function called');
-          }
-        });
-      });
+    // taskService.form(taskId, function(err, taskFormInfo) {
+    //   var url = taskFormInfo.key.replace('embedded:app:', taskFormInfo.contextPath + '/');
+    //   var form = new CamSDK.Form(
+    //     {
+    //       client: camClient,
+    //       taskId,
+    //       formElement: this.myForm.nativeElement,
+    //       done: function(error, camFormInstance) {
+    //         console.log('done function called');
+    //       }
+    //     });
+    //   });
   }
 }

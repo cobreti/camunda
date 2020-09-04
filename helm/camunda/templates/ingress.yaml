@@ -20,11 +20,11 @@ spec:
     - host: camunda.minikube.local
       http:
         paths:
-          - path: /testclient/(.*)
+          - path: /camunda/app/tasklist/default/forms/TestClient(.*)
             backend:
               serviceName: camundatestclientservice
               servicePort: 80
-          - path: /testclient/
+          - path: /camunda/app/tasklist/default/forms/TestClient
             backend:
               serviceName: camundatestclientservice
               servicePort: 80
@@ -39,6 +39,14 @@ spec:
     - host: camunda.danny-thibaudeau.ca
       http:
         paths:
+          - path: /camunda/app/tasklist/default/forms/TestClient(.*)
+            backend:
+              serviceName: camundatestclientservice
+              servicePort: 80
+          - path: /camunda/app/tasklist/default/forms/TestClient
+            backend:
+              serviceName: camundatestclientservice
+              servicePort: 80
           - path: /(.*)
             backend:
               serviceName: camundaservice

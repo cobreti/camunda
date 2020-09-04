@@ -1,4 +1,4 @@
-@server = http://camunda.minikube.local
+@server = http://camunda.danny-thibaudeau.ca
 @camundaRestEngine = {{server}}/engine-rest
 
 ###
@@ -76,7 +76,7 @@ Content-Type: text/plain
 Content-Disposition: form-data; name="data2"; filename="diagram_1.html"
 Content-Type: text/plain
 
-< ./../Forms/testForm/diagram_1.html
+< ./../Forms/testUserForm/dist/testUserForm/index.html
 --28319d96a8c54b529aa9159ad75edef9
 Content-Disposition: form-data; name="data-diagram_1.js"; filename="diagram_1.js"
 Content-Type: text/plain
