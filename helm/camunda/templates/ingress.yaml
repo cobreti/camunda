@@ -55,3 +55,23 @@ spec:
             backend:
               serviceName: camundaservice
               servicePort: 8080
+    - host: camunda.docker.local
+      http:
+        paths:
+          - path: /camunda/app/tasklist/default/forms/TestClient(.*)
+            backend:
+              serviceName: camundatestclientservice
+              servicePort: 80
+          - path: /camunda/app/tasklist/default/forms/TestClient
+            backend:
+              serviceName: camundatestclientservice
+              servicePort: 80
+          - path: /(.*)
+            backend:
+              serviceName: camundaservice
+              servicePort: 8080
+          - path: /
+            backend:
+              serviceName: camundaservice
+              servicePort: 8080
+
