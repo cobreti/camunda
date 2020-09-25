@@ -21,16 +21,27 @@ namespace TestClient.Camunda
             Logger = logger;
 
             Logger.LogInformation($"using camunda server : {CamundaSettings.Server}");
-
-            // camunda = new CamundaEngineClient(
-            //     //new Uri("http://camunda.danny-thibaudeau.ca/engine-rest/engine/default/"), 
-            //     new Uri(CamundaSettings.Server),
-            //     null, null);
+            Init();
         }
 
         public void Run()
         {
-            camunda.Startup();
+            camunda?.Startup();
+        }
+
+        private void Init()
+        {
+            try
+            {
+                camunda = new CamundaEngineClient(
+                    //new Uri("http://camunda.danny-thibaudeau.ca/engine-rest/engine/default/"), 
+                    new Uri(CamundaSettings.Server),
+                    null, null);
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError(ex, "failure to create camunda instance");
+            }
         }
     }
 }
