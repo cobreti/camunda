@@ -20,6 +20,14 @@ spec:
     - host: camunda.minikube.local
       http:
         paths:
+          - path: {{ .Values.camunda_forms }}/TestClient(.*)
+            backend:
+              serviceName: camundatestclientservice
+              servicePort: 80
+          - path: {{ .Values.camunda_forms }}/TestClient
+            backend:
+              serviceName: camundatestclientservice
+              servicePort: 80
           - path: /(.*)
             backend:
               serviceName: camundaservice
@@ -31,6 +39,14 @@ spec:
     - host: camunda.danny-thibaudeau.ca
       http:
         paths:
+          - path: {{ .Values.camunda_forms }}/TestClient(.*)
+            backend:
+              serviceName: camundatestclientservice
+              servicePort: 80
+          - path: {{ .Values.camunda_forms }}/TestClient
+            backend:
+              serviceName: camundatestclientservice
+              servicePort: 80
           - path: /(.*)
             backend:
               serviceName: camundaservice
@@ -42,6 +58,14 @@ spec:
     - host: camunda.docker.local
       http:
         paths:
+          - path: {{ .Values.camunda_forms }}/TestClient(.*)
+            backend:
+              serviceName: camundatestclientservice
+              servicePort: 80
+          - path: {{ .Values.camunda_forms }}/TestClient
+            backend:
+              serviceName: camundatestclientservice
+              servicePort: 80
           - path: /(.*)
             backend:
               serviceName: camundaservice

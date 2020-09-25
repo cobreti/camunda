@@ -12,10 +12,12 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
+using TestClient.Extensions;
 
 namespace TestClient
 {
-    public class Startup
+  public class Startup
     {
         public Startup(IConfiguration configuration)
         {
@@ -28,6 +30,7 @@ namespace TestClient
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.SetupConfiguration(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -61,7 +64,9 @@ namespace TestClient
 
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
             
-            var camunda = new CamundaClient();
+            var camundaSettings = app.ApplicationServices.GetService<IOptions<Configuration.Camunda>>().Value;
+
+            var camunda = new CamundaClient(camundaSettings);
             camunda.Run();
         }
     }
