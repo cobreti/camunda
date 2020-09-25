@@ -27,4 +27,6 @@ spec:
               value: TestClient
             - name: ASPNETCORE_Kestrel__Certificates__Default__Path
               value: localhost.pfx
+            - name: camunda__server
+              value: {{.Values.camunda_server}}
       restartPolicy: Always

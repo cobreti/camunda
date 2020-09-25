@@ -13,11 +13,12 @@ using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using TestClient.Camunda;
 using TestClient.Extensions;
 
 namespace TestClient
 {
-  public class Startup
+    public class Startup
     {
         public Startup(IConfiguration configuration)
         {
@@ -31,6 +32,8 @@ namespace TestClient
         {
             services.AddControllers();
             services.SetupConfiguration(Configuration);
+
+            // services.AddSingleton<ICamundaClient, TestClient.Camunda.CamundaClient>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -57,17 +60,21 @@ namespace TestClient
                 FileProvider = fileProvider
             });
 
-            app.UseHsts();
+            app.UseHttpsRedirection();
+
+            // app.UseHsts();
             app.UseRouting();
 
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
-            
-            var camundaSettings = app.ApplicationServices.GetService<IOptions<Configuration.Camunda>>().Value;
 
-            var camunda = new CamundaClient(camundaSettings);
-            camunda.Run();
+            // var camunda = app.ApplicationServices.GetService<ICamundaClient>();
+
+            // var camundaSettings = app.ApplicationServices.GetService<IOptions<Configuration.Camunda>>().Value;
+
+            // var camunda = new CamundaClient(camundaSettings);
+            // camunda.Run();
         }
     }
 }

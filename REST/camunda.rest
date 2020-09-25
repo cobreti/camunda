@@ -1,4 +1,4 @@
-@server = http://camunda.danny-thibaudeau.ca
+@server = http://camunda.docker.local
 @camundaRestEngine = {{server}}/engine-rest
 
 ###
