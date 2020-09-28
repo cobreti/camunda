@@ -17,6 +17,17 @@ metadata:
     nginx.org/websocket-services: core-service
 spec:
   rules:
+    - host: camunda.docker.local
+      http:
+        paths:
+          - path: {{ .Values.camunda_forms }}/TestClient(.*)
+            backend:
+              serviceName: camundatestclientservice
+              servicePort: 80
+          - path: {{ .Values.camunda_forms }}/TestClient
+            backend:
+              serviceName: camundatestclientservice
+              servicePort: 80
     - host: testclient.docker.local
       http:
         paths:
