@@ -45,9 +45,9 @@ spec:
           - path: /(.*)
             backend:
               serviceName: camundaservice
-              servicePort: 8080
+              servicePort: 80
           - path: /
             backend:
               serviceName: camundaservice
-              servicePort: 8080
+              servicePort: 80
 

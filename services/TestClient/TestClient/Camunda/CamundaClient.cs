@@ -7,20 +7,28 @@ namespace TestClient.Camunda
 {
     public class CamundaClient : ICamundaClient
     {
+        public static ICamundaClient Instance {get; private set;}
+
         private CamundaEngineClient camunda;
 
         private Configuration.Camunda CamundaSettings { get; }
 
         private ILogger Logger { get; }
+        public IServiceProvider ServiceProvider {get;}
 
         public CamundaClient(
+            IServiceProvider serviceProvider,
             ILogger<CamundaClient> logger, 
             IOptions<Configuration.Camunda> camundaSettingsOptions)
         {
             CamundaSettings = camundaSettingsOptions.Value;
             Logger = logger;
+            ServiceProvider = serviceProvider;
 
             Logger.LogInformation($"using camunda server : {CamundaSettings.Server}");
+
+            Instance = this;
+
             Init();
         }
 
@@ -34,7 +42,6 @@ namespace TestClient.Camunda
             try
             {
                 camunda = new CamundaEngineClient(
-                    //new Uri("http://camunda.danny-thibaudeau.ca/engine-rest/engine/default/"), 
                     new Uri(CamundaSettings.Server),
                     null, null);
             }

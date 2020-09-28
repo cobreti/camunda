@@ -4,7 +4,8 @@
 
 namespace: testclient
 camunda_forms: /camunda/app/tasklist/default/forms
-camunda_server: http://camunda.docker.local/engine-rest/engine/default/
+camunda_server: http://camundaservice.camunda.svc.cluster.local/engine-rest/engine/default/
+testclient_container: cobreti/camunda-test-client
 
 replicaCount: 1
 

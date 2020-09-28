@@ -6,10 +6,10 @@
       <bpmn:incoming>Flow_147psuq</bpmn:incoming>
     </bpmn:endEvent>
     <bpmn:sequenceFlow id="Flow_0zrddws" sourceRef="Activity_1qo61a4" targetRef="Gateway_13pz8zo" />
-    <bpmn:sequenceFlow id="Flow_147psuq" sourceRef="Activity_1vowla2" targetRef="Event_17y3ouc" />
+    <bpmn:sequenceFlow id="Flow_147psuq" sourceRef="Activity_1uz8fzr" targetRef="Event_17y3ouc" />
     <bpmn:serviceTask id="Activity_1vowla2" name="test2" camunda:type="external" camunda:topic="test-2">
       <bpmn:incoming>Flow_005t0j9</bpmn:incoming>
-      <bpmn:outgoing>Flow_147psuq</bpmn:outgoing>
+      <bpmn:outgoing>Flow_0ioyutr</bpmn:outgoing>
     </bpmn:serviceTask>
     <bpmn:exclusiveGateway id="Gateway_13pz8zo" default="Flow_09rrj5l">
       <bpmn:incoming>Flow_0zrddws</bpmn:incoming>
@@ -19,8 +19,9 @@
     <bpmn:sequenceFlow id="Flow_005t0j9" sourceRef="Gateway_13pz8zo" targetRef="Activity_1vowla2">
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${teststatus &gt; 0}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
-    <bpmn:serviceTask id="Activity_05vr9nw" camunda:type="external" camunda:topic="test-3">
+    <bpmn:serviceTask id="Activity_05vr9nw" name="test-3" camunda:type="external" camunda:topic="test-3">
       <bpmn:incoming>Flow_09rrj5l</bpmn:incoming>
+      <bpmn:outgoing>Flow_0tmtjso</bpmn:outgoing>
     </bpmn:serviceTask>
     <bpmn:sequenceFlow id="Flow_09rrj5l" sourceRef="Gateway_13pz8zo" targetRef="Activity_05vr9nw" />
     <bpmn:startEvent id="StartEvent_1">
@@ -30,7 +31,7 @@
       <bpmn:outgoing>Flow_0xtword</bpmn:outgoing>
       <bpmn:messageEventDefinition id="MessageEventDefinition_0gqq7b1" messageRef="Message_0zys0pw" />
     </bpmn:startEvent>
-    <bpmn:serviceTask id="Activity_1qo61a4" name="test" camunda:type="external" camunda:topic="test-1">
+    <bpmn:serviceTask id="Activity_1qo61a4" name="test-1" camunda:type="external" camunda:topic="test-1">
       <bpmn:extensionElements>
         <camunda:inputOutput>
           <camunda:inputParameter name="value1">test value</camunda:inputParameter>
@@ -62,6 +63,13 @@
       <bpmn:outgoing>Flow_18r7qak</bpmn:outgoing>
     </bpmn:userTask>
     <bpmn:sequenceFlow id="Flow_18r7qak" sourceRef="Activity_1lsus1z" targetRef="Activity_1qo61a4" />
+    <bpmn:serviceTask id="Activity_1uz8fzr" name="test-4" camunda:type="external" camunda:topic="test-4">
+      <bpmn:incoming>Flow_0ioyutr</bpmn:incoming>
+      <bpmn:incoming>Flow_0tmtjso</bpmn:incoming>
+      <bpmn:outgoing>Flow_147psuq</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_0ioyutr" sourceRef="Activity_1vowla2" targetRef="Activity_1uz8fzr" />
+    <bpmn:sequenceFlow id="Flow_0tmtjso" sourceRef="Activity_05vr9nw" targetRef="Activity_1uz8fzr" />
   </bpmn:process>
   <bpmn:message id="Message_0zys0pw" name="startMsg" />
   <bpmn:signal id="Signal_15sd4s0" name="Signal_0tsnqni" />
@@ -86,8 +94,8 @@
         <di:waypoint x="830" y="117" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_147psuq_di" bpmnElement="Flow_147psuq">
-        <di:waypoint x="930" y="117" />
-        <di:waypoint x="1032" y="117" />
+        <di:waypoint x="1170" y="190" />
+        <di:waypoint x="1272" y="190" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0zrddws_di" bpmnElement="Flow_0zrddws">
         <di:waypoint x="470" y="117" />
@@ -97,9 +105,18 @@
         <di:waypoint x="215" y="117" />
         <di:waypoint x="370" y="117" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="Event_17y3ouc_di" bpmnElement="Event_17y3ouc">
-        <dc:Bounds x="1032" y="99" width="36" height="36" />
-      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_0ioyutr_di" bpmnElement="Flow_0ioyutr">
+        <di:waypoint x="930" y="117" />
+        <di:waypoint x="1000" y="117" />
+        <di:waypoint x="1000" y="190" />
+        <di:waypoint x="1070" y="190" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0tmtjso_di" bpmnElement="Flow_0tmtjso">
+        <di:waypoint x="930" y="270" />
+        <di:waypoint x="1000" y="270" />
+        <di:waypoint x="1000" y="190" />
+        <di:waypoint x="1070" y="190" />
+      </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="Activity_0mlbzhh_di" bpmnElement="Activity_1vowla2">
         <dc:Bounds x="830" y="77" width="100" height="80" />
       </bpmndi:BPMNShape>
@@ -120,6 +137,12 @@
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_16imox9_di" bpmnElement="Activity_1lsus1z">
         <dc:Bounds x="370" y="390" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_17y3ouc_di" bpmnElement="Event_17y3ouc">
+        <dc:Bounds x="1272" y="172" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0v4zqmn_di" bpmnElement="Activity_1uz8fzr">
+        <dc:Bounds x="1070" y="150" width="100" height="80" />
       </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>

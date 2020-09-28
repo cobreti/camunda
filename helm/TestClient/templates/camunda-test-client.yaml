@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: camundatestclient
-          image: cobreti/camunda-test-client
+          image: {{ .Values.testclient_container }}
           workingDir: /TestClient
           command: ["dotnet", "TestClient.dll"]
           ports:

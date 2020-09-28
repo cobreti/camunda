@@ -1,7 +1,10 @@
+using System;
+
 namespace TestClient.Camunda
 {
     public interface ICamundaClient
     {
-         void Run();
+        void Run();
+        IServiceProvider ServiceProvider {get;}
     }
 }

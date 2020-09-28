@@ -53,7 +53,7 @@ namespace TestClient
                 FileProvider = fileProvider
             });
 
-            app.UseHttpsRedirection();
+            // app.UseHttpsRedirection();
 
             // app.UseHsts();
             app.UseRouting();
