@@ -22,4 +22,21 @@ spec:
           env:
             - name: ALLOW_ANONYMOUS_LOGIN
               value: "yes"
+            - name: JAVA_OPTS
+              value: "-XX:-UseContainerSupport"        
+          livenessProbe:
+            initialDelaySeconds: 180
+            periodSeconds: 180
+            httpGet:
+              path: /engine-rest/version
+              port: 8080
+            timeoutSeconds: 5
+          readinessProbe:
+            initialDelaySeconds: 180
+            periodSeconds: 180
+            httpGet:
+              path: /engine-rest/version
+              port: 8080
+            timeoutSeconds: 5
       restartPolicy: Always
+
