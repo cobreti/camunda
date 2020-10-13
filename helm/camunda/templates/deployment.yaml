@@ -22,11 +22,11 @@ spec:
           env:
             - name: ALLOW_ANONYMOUS_LOGIN
               value: "yes"
-            - name: JAVA_OPTS
-              value: "-XX:-UseContainerSupport"
+            # - name: JAVA_OPTS
+            #   value: "-XX:-UseContainerSupport"
           resources:
             requests:
-              memory: "400Mi"
+              memory: "300Mi"
               cpu: "250m"
             limits:
               memory: "600Mi"
